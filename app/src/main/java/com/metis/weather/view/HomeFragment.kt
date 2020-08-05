@@ -96,9 +96,11 @@ class HomeFragment : Fragment() {
         })
 
         viewModel.isError.observe(this, Observer<Any> {
-            binding.status.visibility = View.VISIBLE
-            binding.sectionShow.visibility = View.GONE
-            viewModel.setStatus(resources.getString(R.string.error))
+            if (it != null) {
+                binding.status.visibility = View.VISIBLE
+                binding.sectionShow.visibility = View.GONE
+                viewModel.setStatus(resources.getString(R.string.error))
+            }
         })
 
         viewModel.isEmpty.observe(this, Observer<Boolean> {

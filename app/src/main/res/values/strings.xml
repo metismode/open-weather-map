@@ -17,7 +17,7 @@
     <string name="humidity">Humidity</string>
     <string name="units_humidity">%</string>
 
-    <string name="main">Main</string>
+    <string name="weather">Weather</string>
     <string name="description">Description</string>
 
     <string name="units">Units</string>
