@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
 
     private fun setupViewModel() {
 
+        viewModel.isCelsius.value = true
         viewModel.weather.observe(this, Observer<WeatherModel> {
             binding.status.visibility = View.GONE
             binding.loading.visibility = View.GONE

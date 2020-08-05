@@ -1,8 +1,6 @@
 package com.metis.weather.viewmodel
 
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.metis.weather.api.WeatherService
@@ -37,10 +35,10 @@ class ForecastViewModel : ViewModel()  {
     val city = MutableLiveData<String>()
     val lat = MutableLiveData<String>()
     val lon = MutableLiveData<String>()
-    val units = MutableLiveData<Boolean>()
+    val isCelsius = MutableLiveData<Boolean>()
 
     fun searchWeather() {
-        val units = if (units.value!!) "Metric" else "Imperial"
+        val units = if (isCelsius.value!!) "Metric" else "Imperial"
         fetchForecast(lat.value!!,lon.value!!,units, Utils.apiKey)
     }
 
@@ -64,15 +62,17 @@ class ForecastViewModel : ViewModel()  {
                     }
                     override fun onError(e: Throwable) {
                         isLoading.value = false
-                        val error: HttpException = e as HttpException
-                        val code = error.code()
-                        when (code) {
-                            404 -> {
-                                isEmpty.value = true
+                        if (e is HttpException) {
+                            when (e.code()) {
+                                404 -> {
+                                    isEmpty.value = true
+                                }
+                                else -> {
+                                    isError.value = e.message.toString()
+                                }
                             }
-                            else -> {
-                                isError.value = e.message.toString()
-                            }
+                        }else{
+                            isError.value = e.message.toString()
                         }
 
                     }
