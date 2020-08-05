@@ -1,6 +1,5 @@
 package com.metis.weather.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.metis.weather.api.WeatherService
@@ -54,11 +53,7 @@ class ForecastViewModel : ViewModel()  {
                     DisposableSingleObserver<ForecastModel>() {
                     override fun onSuccess(value: ForecastModel) {
                         isLoading.value = false
-                        if (value==null) {
-                            isEmpty.value = true
-                        } else {
-                            forecast.value = value
-                        }
+                        forecast.value = value
                     }
                     override fun onError(e: Throwable) {
                         isLoading.value = false
@@ -82,10 +77,6 @@ class ForecastViewModel : ViewModel()  {
 
     fun setStatus(msg:String){
         status.value = msg
-    }
-
-    fun click(forecast: ForecastModel.Hourly, context: Context) {
-
     }
 
     override fun onCleared() {

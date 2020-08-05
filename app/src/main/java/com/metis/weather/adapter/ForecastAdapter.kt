@@ -9,8 +9,8 @@ import com.metis.weather.R
 import com.metis.weather.model.ForecastModel
 import com.metis.weather.util.Utils
 import com.metis.weather.util.loadImage
-import kotlinx.android.synthetic.main.list_forecast_item.view.*
 import kotlinx.android.synthetic.main.list_forecast_header.view.*
+import kotlinx.android.synthetic.main.list_forecast_item.view.*
 
 
 class ForecastAdapter(
@@ -30,12 +30,12 @@ class ForecastAdapter(
         val headerView: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_forecast_header, parent, false)
 
-        return when {
-            viewType === TYPE_ITEM -> {
+        return when (viewType) {
+            TYPE_ITEM -> {
                 MyViewHolder(itemView, parent.context)
             }
-            viewType === TYPE_HEADER -> {
-                HeaderViewHolder(headerView, parent.context)
+            TYPE_HEADER -> {
+                HeaderViewHolder(headerView)
             }
             else -> MyViewHolder(itemView, parent.context)
         }
@@ -95,7 +95,7 @@ class MyViewHolder(val view: View, val context: Context) : RecyclerView.ViewHold
     }
 }
 
-class HeaderViewHolder(val view: View, context: Context) : RecyclerView.ViewHolder(view) {
+class HeaderViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(string: String) {
         view.city.text = string

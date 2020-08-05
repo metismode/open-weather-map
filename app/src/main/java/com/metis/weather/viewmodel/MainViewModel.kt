@@ -55,7 +55,7 @@ class MainViewModel : ViewModel() , Observable {
 
 
     private fun fetchWeather(city:String,units:String,apikey:String) {
-
+        isError.value = null
         isLoading.value = true
         disposable.add(
             weatherService.getWeatherByCity(city,units,apikey)
@@ -65,6 +65,7 @@ class MainViewModel : ViewModel() , Observable {
                     DisposableSingleObserver<WeatherModel>() {
                     override fun onSuccess(value: WeatherModel) {
                         isLoading.value = false
+
                         isEmpty.value = false
                         weather.value = value
                     }
