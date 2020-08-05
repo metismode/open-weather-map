@@ -2,11 +2,11 @@ package com.metis.weather.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,8 +59,8 @@ class ForecastFragment : Fragment() {
             viewModel.city.value!!,
             viewModel.isCelsius.value!!
         )
-        binding.recyclerViewProduct.layoutManager = LinearLayoutManager(activity as Context)
-        binding.recyclerViewProduct.adapter = adapter
+        binding.recyclerViewForecast.layoutManager = LinearLayoutManager(activity as Context)
+        binding.recyclerViewForecast.adapter = adapter
     }
 
     private fun setupViewModel() {
