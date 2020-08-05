@@ -4,9 +4,7 @@ import android.content.Context
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import java.text.SimpleDateFormat
@@ -15,7 +13,7 @@ import java.util.*
 
 object Utils {
 
-    val imageUrl: String = "http://openweathermap.org/img/wn/[name]@2x.png"
+    val imageUrl: String = "https://openweathermap.org/img/wn/[name]@2x.png"
     val apiKey: String = "3dad2fbae06625c8cd4b06b99483d82e"
 
     fun dateFormat(dt: Int): String {
