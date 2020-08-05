@@ -46,8 +46,11 @@ class MainViewModel : ViewModel() , Observable {
     var status = MutableLiveData<String>()
 
     fun searchWeather(){
+        if (isCelsius.value == null) {
+            isCelsius.value = true
+        }
         val units = if (isCelsius.value!!) "Metric" else "Imperial"
-        fetchWeather(cityName.value.toString(),units,Utils.apiKey)
+        fetchWeather(cityName.value.toString(), units, Utils.apiKey)
     }
 
 
