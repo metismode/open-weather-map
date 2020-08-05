@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="app_name">Open Weather Map</string>
+    <string name="empty">City not found</string>
+    <string name="error">An error occurred !!</string>
+
+
+    <string name="search">Search</string>
+    <string name="city_name">City name</string>
+
+    <string name="date">Date</string>
+
+    <string name="temperature">Temperature</string>
+    <string name="units_celsius">°C</string>
+    <string name="units_fahrenheit">°F</string>
+
+    <string name="humidity">Humidity</string>
+    <string name="units_humidity">%</string>
+
+    <string name="main">Main</string>
+    <string name="description">Description</string>
+
+    <string name="units">Units</string>
+    <string name="celsius">Temp unit to Celsius</string>
+    <string name="fahrenheit">Temp unit to Fahrenheit</string>
+
+    <string name="forecast">Forecasts</string>
+
+
+
+
+</resources>
